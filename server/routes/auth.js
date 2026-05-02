@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const { supabaseAdmin } = require("../lib/supabase");
+const { supabaseAdmin, supabasePublic } = require("../lib/supabase");
 const { isValidEmail } = require("../middleware/validate");
 const { requireAuth, requireAdmin, invalidateRoleCache } = require("../middleware/auth");
 
@@ -249,8 +249,8 @@ router.post("/login", async (req, res) => {
       });
     }
 
-    // Sign in with Supabase Auth
-    const { data, error } = await supabaseAdmin.auth.signInWithPassword({
+    // Sign in with Supabase Public Client (anon key)
+    const { data, error } = await supabasePublic.auth.signInWithPassword({
       email,
       password
     });
@@ -328,7 +328,7 @@ router.post("/refresh", async (req, res) => {
       });
     }
 
-    const { data, error } = await supabaseAdmin.auth.refreshSession({
+    const { data, error } = await supabasePublic.auth.refreshSession({
       refresh_token
     });
 
