@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Panel admin Pandu Hotel untuk mengelola reservasi, inventaris kamar, harga, konten, dan keamanan.">
+  <title>Panel Admin | Pandu Hotel</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="admin-page">
+  <aside class="admin-shell-sidebar">
+    <a href="index.html" class="brand admin-brand" aria-label="Pandu Hotel">
+      <span class="brand-mark">P</span>
+      <span>Pandu Admin</span>
+    </a>
+    <button class="panel-nav-toggle admin-panel-toggle" type="button" aria-label="Buka menu admin" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <nav class="admin-shell-nav" aria-label="Navigasi admin">
+      <button class="admin-tab active" data-admin="dashboard" type="button">Dashboard</button>
+      <button class="admin-tab" data-admin="reservations" type="button">Reservasi</button>
+      <button class="admin-tab" data-admin="inventory" type="button">Inventaris</button>
+      <button class="admin-tab" data-admin="rates" type="button">Rate Plan</button>
+      <button class="admin-tab" data-admin="guests" type="button">Tamu</button>
+      <button class="admin-tab" data-admin="payments" type="button">Pembayaran</button>
+      <button class="admin-tab" data-admin="content" type="button">CMS</button>
+      <button class="admin-tab" data-admin="security" type="button">Keamanan</button>
+    </nav>
+  </aside>
+
+  <main class="admin-main">
+    <header class="admin-topbar">
+      <div>
+        <p class="eyebrow">Pusat operasional</p>
+        <h1>Panel Admin Pandu Hotel</h1>
+      </div>
+      <div class="admin-profile">
+        <span>Admin Manager</span>
+        <strong>AM</strong>
+      </div>
+    </header>
+
+    <section class="admin-view active" id="admin-dashboard">
+      <div class="admin-section-title">
+        <h2>Ringkasan Hari Ini</h2>
+        <button class="primary-btn" type="button">Export Laporan</button>
+      </div>
+      <div class="stat-grid">
+        <div><span>Okupansi</span><strong>84%</strong><small>+6% dari kemarin</small></div>
+        <div><span>RevPAR</span><strong>Rp920rb</strong><small>Target Rp900rb</small></div>
+        <div><span>ADR</span><strong>Rp1,34jt</strong><small>Rata-rata 7 hari</small></div>
+        <div><span>Booking Baru</span><strong>27</strong><small>9 menunggu bayar</small></div>
+      </div>
+      <div class="admin-grid-2">
+        <div class="admin-card">
+          <div class="analytics-card-head">
+            <div>
+              <h3>Tren Booking & Revenue</h3>
+              <span>12 bulan terakhir</span>
+            </div>
+            <select>
+              <option>Bulanan</option>
+              <option>Mingguan</option>
+              <option>Harian</option>
+            </select>
+          </div>
+          <div class="chart-card">
+            <div class="bar" data-label="Nov" style="height: 42%"></div>
+            <div class="bar" data-label="Des" style="height: 58%"></div>
+            <div class="bar" data-label="Jan" style="height: 50%"></div>
+            <div class="bar" data-label="Feb" style="height: 66%"></div>
+            <div class="bar" data-label="Mar" style="height: 73%"></div>
+            <div class="bar" data-label="Apr" style="height: 89%"></div>
+            <div class="bar" data-label="Mei" style="height: 78%"></div>
+            <div class="bar" data-label="Jun" style="height: 94%"></div>
+          </div>
+        </div>
+        <div class="admin-card">
+          <div class="analytics-card-head">
+            <div>
+              <h3>Forecast Okupansi</h3>
+              <span>30 hari ke depan</span>
+            </div>
+          </div>
+          <div class="forecast-list">
+            <div><span>Minggu ini</span><strong>84%</strong><em class="trend-up">+6%</em></div>
+            <div><span>Minggu depan</span><strong>79%</strong><em class="trend-down">-5%</em></div>
+            <div><span>High season</span><strong>91%</strong><em class="trend-up">+12%</em></div>
+            <div><span>Risiko batal</span><strong>8%</strong><em class="trend-down">rendah</em></div>
+          </div>
+        </div>
+      </div>
+      <div class="analytics-grid">
+        <section class="admin-card">
+          <div class="analytics-card-head">
+            <div>
+              <h3>Channel Booking</h3>
+              <span>Kontribusi trafik dan konversi</span>
+            </div>
+          </div>
+          <div class="channel-list">
+            <div><span>Direct Website</span><strong>42%</strong><em style="width: 42%"></em></div>
+            <div><span>Agoda</span><strong>24%</strong><em style="width: 24%"></em></div>
+            <div><span>Booking.com</span><strong>19%</strong><em style="width: 19%"></em></div>
+            <div><span>Walk-in</span><strong>15%</strong><em style="width: 15%"></em></div>
+          </div>
+        </section>
+
+        <section class="admin-card">
+          <div class="analytics-card-head">
+            <div>
+              <h3>Segment Tamu</h3>
+              <span>Dasar strategi promo jangka panjang</span>
+            </div>
+          </div>
+          <div class="segment-grid">
+            <article><strong>Business</strong><span>38%</span></article>
+            <article><strong>Leisure</strong><span>34%</span></article>
+            <article><strong>Family</strong><span>21%</span></article>
+            <article><strong>Long stay</strong><span>7%</span></article>
+          </div>
+        </section>
+
+        <section class="admin-card">
+          <div class="analytics-card-head">
+            <div>
+              <h3>Revenue Mix</h3>
+              <span>Kamar dan add-on</span>
+            </div>
+          </div>
+          <div class="revenue-mix" id="revenue-mix-container">
+            <!-- Rendered by JS -->
+            <p class="section-desc">Data pendapatan akan muncul setelah transaksi diproses.</p>
+          </div>
+        </section>
+      </div>
+      <section class="admin-card insight-panel">
+        <div class="analytics-card-head">
+          <div>
+            <h3>Insight Jangka Panjang</h3>
+            <span>Rekomendasi tindakan berdasarkan pola booking</span>
+          </div>
+        </div>
+        <div class="insight-grid">
+          <article>
+            <strong>Naikkan rate weekend</strong>
+            <p>Okupansi Jumat-Minggu stabil di atas 88%. Weekend Premium dapat dinaikkan dari +18% ke +22%.</p>
+          </article>
+          <article>
+            <strong>Perkuat direct booking</strong>
+            <p>Direct Website memberi margin terbaik. Dorong promo member dan voucher repeat guest.</p>
+          </article>
+          <article>
+            <strong>Tambah paket keluarga</strong>
+            <p>Family Residence sering penuh saat libur sekolah. Buat bundle sarapan dan late check-out.</p>
+          </article>
+        </div>
+      </section>
+      <div class="sync-map">
+        <div>
+          <span>Admin input</span>
+          <strong>Kamar, harga, promo, kebijakan, status reservasi</strong>
+        </div>
+        <div>
+          <span>User melihat</span>
+          <strong>Pilihan kamar, total harga, voucher, status booking</strong>
+        </div>
+        <div>
+          <span>User input</span>
+          <strong>Tanggal, tamu, data kontak, add-on, metode bayar</strong>
+        </div>
+      </div>
+      <div class="ops-grid" id="ops-summary-grid">
+        <article><span>Check-in hari ini</span><strong id="stat-checkins">-</strong><small>Berdasarkan reservasi</small></article>
+        <article><span>Housekeeping</span><strong id="stat-rooms-ready">-</strong><small>Kamar tersedia</small></article>
+        <article><span>Pembayaran</span><strong id="stat-daily-rev">-</strong><small>Hari ini</small></article>
+        <article><span>Channel</span><strong>3 aktif</strong><small>Direct, Agoda, Booking.com</small></article>
+      </div>
+    </section>
+
+    <section class="admin-view" id="admin-reservations">
+      <div class="admin-section-title">
+        <h2>Manajemen Reservasi</h2>
+        <button class="primary-btn" id="createResBtn" type="button">Buat Reservasi</button>
+      </div>
+      <div class="admin-table-wrap">
+        <table>
+          <thead>
+            <tr><th>Kode</th><th>Tamu</th><th>Kamar</th><th>Tanggal</th><th>Add-on</th><th>Metode</th><th>Status</th><th>Total</th></tr>
+          </thead>
+          <tbody>
+            <!-- Rendered by JS -->
+          </tbody>
+        </table>
+      </div>
+      <div class="modal-overlay" id="reservationModal">
+        <div class="admin-form-card modal-content" id="reservationFormCard">
+          <h3>Input reservasi manual</h3>
+          <form id="reservationForm">
+            <div class="cms-grid">
+              <label>Kode Booking<input type="text" id="resCode" value="PH-1032" readonly></label>
+              <label>Nama Tamu<input type="text" id="resGuestName" placeholder="Nama sesuai user" required></label>
+              <label>Email Tamu<input type="email" id="resGuestEmail" placeholder="email@domain.com" required></label>
+              <label>Check-in<input type="date" id="resCheckIn" required></label>
+              <label>Check-out<input type="date" id="resCheckOut" required></label>
+              <label>Tipe Kamar<select id="resHotelName"><option>Deluxe City</option><option>Suite Ocean</option><option>Family Residence</option></select></label>
+              <label>Status Pembayaran<select id="resPaymentStatus"><option value="pending">Pending</option><option value="paid">Paid</option><option value="cancelled">Cancelled</option></select></label>
+              <label>Metode Bayar<select id="resPaymentMethod"><option value="va">Virtual Account</option><option value="cc">Kartu Debit/Kredit</option><option value="qris">QRIS</option><option value="paylater">Paylater</option></select></label>
+              <label>Catatan Internal<input type="text" id="resNotes" placeholder="Permintaan tamu / housekeeping"></label>
+            </div>
+            <div style="display: flex; gap: 12px; margin-top: 18px;">
+              <button class="primary-btn" type="submit" style="flex: 1;">Simpan Reservasi</button>
+              <button class="ghost-btn" type="button" id="cancelResBtn" style="flex: 1;">Batal</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section class="admin-view" id="admin-inventory">
+      <div class="admin-section-title">
+        <h2>Inventaris Kamar</h2>
+        <button class="primary-btn" id="addInventoryBtn" type="button">Tambah Kamar</button>
+      </div>
+      <div class="inventory-grid inventory-list">
+        <!-- Rendered by JS -->
+      </div>
+      <div class="modal-overlay" id="inventoryModal">
+        <div class="admin-form-card modal-content">
+          <h3>Manajemen Inventaris Kamar</h3>
+          <form id="inventoryForm">
+            <div class="cms-grid">
+              <label>Nama Kamar<input type="text" id="invRoomName" placeholder="Contoh: Deluxe Suite Ocean"></label>
+              <label>Lokasi (Kota)
+                <input type="text" id="invLocation" placeholder="Contoh: Lombok, Sumbawa, dll" list="location-suggestions">
+                <datalist id="location-suggestions">
+                  <option value="Jakarta">
+                  <option value="Bali">
+                  <option value="Bandung">
+                  <option value="Lombok">
+                  <option value="Sumbawa">
+                </datalist>
+              </label>
+              <label>Harga Dasar<input type="number" id="invPrice" placeholder="Harga per malam"></label>
+              <label>Kamar Tersedia<input type="number" id="invStock" placeholder="Stok saat ini"></label>
+              <div class="cms-form-group">
+                <label>Kapasitas Kamar (Ceklis yang tersedia)</label>
+                <div class="capacity-checkbox-grid" id="invCapacityCheckboxes">
+                  <label><input type="checkbox" value="1 Tamu"> 1 Tamu</label>
+                  <label><input type="checkbox" value="2 Tamu" checked> 2 Tamu</label>
+                  <label><input type="checkbox" value="3 Tamu"> 3 Tamu</label>
+                  <label><input type="checkbox" value="4 Tamu"> 4 Tamu</label>
+                  <label><input type="checkbox" value="6 Tamu"> 6 Tamu</label>
+                  <label><input type="checkbox" value="8 Tamu"> 8 Tamu</label>
+                </div>
+              </div>
+              <label>Fasilitas (pisahkan koma)<input type="text" id="invFeatures" placeholder="Wi-Fi, AC, TV"></label>
+              <label>Foto Kamar<input type="file" id="invImage" accept="image/*"></label>
+              <label>Status Jual<select id="invStatus"><option>Aktif</option><option>Tutup sementara</option></select></label>
+            </div>
+            <div style="display: flex; gap: 12px; margin-top: 18px;">
+              <button class="primary-btn" type="submit" style="flex: 2;">Simpan ke Database</button>
+              <button class="ghost-btn" type="button" id="cancelInvBtn" style="flex: 1;">Batal</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section class="admin-view" id="admin-rates">
+      <div class="admin-section-title">
+        <div>
+          <h2>Rate Plan & Strategi Harga</h2>
+          <p class="section-desc">Atur multiplier harga dinamis dan kebijakan refund paket.</p>
+        </div>
+        <button class="primary-btn" id="addRateBtn" type="button">Buat Paket Harga</button>
+      </div>
+      <div class="rate-grid" id="admin-rate-grid">
+        <!-- Rendered by JS -->
+      </div>
+      <div class="modal-overlay" id="rateModal">
+        <div class="admin-form-card modal-content">
+          <h3>Konfigurasi Paket Harga</h3>
+          <form id="rateForm">
+            <div class="cms-grid">
+              <label>Nama Rate Plan<input type="text" id="rateName" placeholder="Contoh: Early Bird Promo"></label>
+              <label>Multiplier Harga<input type="text" id="rateMultiplier" placeholder="Contoh: 100% atau -15%"></label>
+              <label>Kebijakan Refund<input type="text" id="rateRefund" placeholder="Contoh: No Refund atau H-2"></label>
+              <label>Kode Promo Otomatis<input type="text" id="ratePromo" placeholder="Opsional"></label>
+              <label>Status Plan<select id="rateStatus"><option value="active">Aktif</option><option value="inactive">Nonaktif</option></select></label>
+            </div>
+            <div style="display: flex; gap: 12px; margin-top: 18px;">
+              <button class="primary-btn" type="submit" style="flex: 2;">Simpan Paket</button>
+              <button class="ghost-btn" type="button" id="cancelRateBtn" style="flex: 1;">Batal</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section class="admin-view" id="admin-guests">
+      <div class="admin-section-title">
+        <div>
+          <h2>Manajemen Tamu</h2>
+          <p class="section-desc">Kelola profil user, tier loyalitas, dan poin rewards.</p>
+        </div>
+        <div class="admin-actions-row">
+          <div class="search-box">
+            <input type="text" id="guestSearch" placeholder="Cari nama atau email...">
+          </div>
+          <button class="primary-btn" id="addGuestBtn" type="button">Tambah Tamu</button>
+        </div>
+      </div>
+      <div class="admin-table-wrap">
+        <table id="table-admin-guests">
+          <thead>
+            <tr><th>Nama</th><th>Email</th><th>Telepon</th><th>Tier</th><th>Booking</th><th>Poin</th></tr>
+          </thead>
+          <tbody id="admin-guests-tbody">
+            <!-- Rendered by JS -->
+          </tbody>
+        </table>
+      </div>
+      <div class="modal-overlay" id="guestModal">
+        <div class="admin-form-card modal-content">
+          <h3>Detail Profil Tamu</h3>
+          <form id="guestForm">
+            <div class="cms-grid">
+              <label>Nama Lengkap<input type="text" id="guestName" placeholder="Nama lengkap sesuai identitas"></label>
+              <label>Email Login<input type="email" id="guestEmail" placeholder="email@domain.com"></label>
+              <label>Nomor WhatsApp<input type="tel" id="guestPhone" placeholder="+62..."></label>
+              <label>Tier Member<select id="guestTier"><option value="bronze">Bronze</option><option value="silver">Silver</option><option value="gold">Gold</option><option value="platinum">Platinum</option></select></label>
+              <label>Poin Rewards<input type="number" id="guestPoints" value="0"></label>
+              <label>Status Akun<select id="guestStatus"><option value="active">Aktif</option><option value="blocked">Diblokir</option></select></label>
+            </div>
+            <div style="display: flex; gap: 12px; margin-top: 18px;">
+              <button class="primary-btn" type="submit" style="flex: 2;">Simpan Perubahan</button>
+              <button class="ghost-btn" type="button" id="cancelGuestBtn" style="flex: 1;">Batal</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+      <div class="modal-overlay" id="guestDetailModal">
+        <div class="admin-form-card modal-content" style="max-width: 800px;">
+          <div class="modal-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+            <h3>Riwayat Booking Tamu</h3>
+            <button class="ghost-btn" id="closeGuestDetailBtn">Tutup</button>
+          </div>
+          <div id="guestBookingsList" class="admin-table-wrap">
+            <table style="font-size: 0.9rem;">
+              <thead>
+                <tr>
+                  <th>Kode</th>
+                  <th>Kamar</th>
+                  <th>Check-in</th>
+                  <th>Check-out</th>
+                  <th>Status</th>
+                  <th>Total</th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- Rendered by JS -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="admin-view" id="admin-payments">
+      <div class="admin-section-title">
+        <h2>Pembayaran & Refund</h2>
+        <button class="primary-btn" id="reconcileBtn" type="button">Rekonsiliasi Data</button>
+      </div>
+      <div class="payment-grid" id="payment-stats-grid">
+        <article><span>Total Pendapatan (Nett)</span><strong id="stat-net-revenue">Rp0</strong><small id="stat-paid-count">0 sukses</small></article>
+        <article><span>Pending/Unpaid</span><strong id="stat-pending-revenue">Rp0</strong><small id="stat-pending-count">0 transaksi</small></article>
+        <article><span>Total Refund</span><strong id="stat-refund-revenue" style="color: #ef4444;">Rp0</strong><small id="stat-refund-count">0 transaksi</small></article>
+      </div>
+
+      <div class="admin-section-subtitle" style="margin: 24px 0 12px; font-weight: 700; color: #1e293b;">
+        <h3>⏳ Transaksi Menunggu Verifikasi</h3>
+      </div>
+      <div class="admin-table-wrap">
+        <table id="table-pending-payments">
+          <thead>
+            <tr><th>Invoice</th><th>Booking</th><th>Metode</th><th>Status</th><th>Total</th><th>Aksi</th></tr>
+          </thead>
+          <tbody>
+            <!-- Rendered by JS -->
+          </tbody>
+        </table>
+      </div>
+
+      <div class="admin-section-subtitle" style="margin: 32px 0 12px; font-weight: 700; color: #1e293b;">
+        <h3>✅ Riwayat Selesai & Refund</h3>
+      </div>
+      <div class="admin-table-wrap">
+        <table id="table-settled-payments">
+          <thead>
+            <tr><th>Invoice</th><th>Booking</th><th>Metode</th><th>Status</th><th>Total</th><th>Aksi</th></tr>
+          </thead>
+          <tbody>
+            <!-- Rendered by JS -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="admin-view" id="admin-content">
+      <div class="admin-section-title">
+        <div>
+          <h2>Manajemen Konten (CMS)</h2>
+          <p class="section-desc">Sesuaikan tampilan publik website Pandu Hotel secara real-time.</p>
+        </div>
+        <button class="primary-btn" id="saveCmsBtn" type="button">Publikasikan Perubahan</button>
+      </div>
+
+      <div class="admin-grid-2">
+        <div class="admin-card">
+          <div class="analytics-card-head">
+            <h3>Identitas & Branding</h3>
+          </div>
+          <div class="cms-form-group">
+            <label>Nama Website
+              <input type="text" id="cmsSiteName" value="Pandu Hotel" placeholder="Nama brand hotel">
+            </label>
+            <label>Slogan (Tagline)
+              <input type="text" id="cmsTagline" value="Kenyamanan Tanpa Batas" placeholder="Slogan singkat">
+            </label>
+            <div class="cms-upload-box">
+              <span>Logo Website</span>
+              <div class="logo-preview-area" id="cmsLogoDropZone" title="Klik untuk ganti logo">
+                <div class="brand-mark" id="cmsLogoPreview">P</div>
+                <div class="logo-upload-hint">
+                  <strong>Pilih File</strong>
+                  <small>JPG, PNG (Maks 2MB)</small>
+                </div>
+                <input type="file" id="cmsLogoInput" style="display: none;" accept="image/*">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="admin-card">
+          <div class="analytics-card-head">
+            <h3>Hero Section & Promo</h3>
+          </div>
+          <div class="cms-form-group">
+            <label>Judul Utama (H1)
+              <input type="text" id="cmsHeroTitle" value="Rasakan Pengalaman Menginap Terbaik">
+            </label>
+            <label>Teks Promo Banner
+              <input type="text" id="cmsPromoText" value="Diskon Member 10% dengan Kode: PANDU10">
+            </label>
+            <label>URL Gambar Banner (Unsplash/Supabase)
+              <input type="text" id="cmsBannerUrl" value="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb">
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <div class="admin-card" style="margin-top: 24px;">
+        <div class="analytics-card-head">
+          <h3>Kontak & Informasi Operasional</h3>
+        </div>
+        <div class="cms-grid-3">
+          <label>Email Reservasi
+            <input type="email" id="cmsContactEmail" value="hello@panduhotel.com">
+          </label>
+          <label>WhatsApp Hotline
+            <input type="tel" id="cmsContactPhone" value="+62 812 3456 7890">
+          </label>
+          <label>Alamat Kantor Pusat
+            <input type="text" id="cmsAddress" value="Jl. Sudirman No. 12, Jakarta">
+          </label>
+          <label>Waktu Check-in
+            <input type="text" id="cmsCheckInTime" value="14:00 WIB">
+          </label>
+          <label>Waktu Check-out
+            <input type="text" id="cmsCheckOutTime" value="12:00 WIB">
+          </label>
+          <label>Instagram
+            <input type="text" id="cmsInstagram" value="@panduhotel">
+          </label>
+        </div>
+      </div>
+
+      <div class="cms-preview-note">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+        <span>Perubahan pada CMS akan langsung berdampak pada halaman utama yang dilihat oleh tamu.</span>
+      </div>
+    </section>
+
+    <section class="admin-view" id="admin-security">
+      <div class="admin-section-title">
+        <div>
+          <h2>Keamanan & Akses Akun</h2>
+          <p class="section-desc">Audit akses login, manajemen role, dan pengaturan keamanan data.</p>
+        </div>
+        <button class="primary-btn" id="addAccountBtn" type="button">Tambah Akun</button>
+      </div>
+      <div class="access-summary-grid">
+        <article><span>Total akun</span><strong id="stat-total-accounts">0</strong><small>Semua role</small></article>
+        <article><span>Admin</span><strong id="stat-admin-count">0</strong><small>MFA wajib</small></article>
+        <article><span>Resepsionis</span><strong id="stat-staff-count">0</strong><small>Akses front desk</small></article>
+        <article><span>User signup</span><strong id="stat-user-count">0</strong><small>Self-service booking</small></article>
+      </div>
+      <div class="admin-table-wrap">
+        <table id="table-admin-accounts">
+          <thead>
+            <tr><th>Role</th><th>Email</th><th>Nama</th><th>Telepon</th><th>Poin</th><th>Status</th><th>Aksi</th></tr>
+          </thead>
+          <tbody>
+            <!-- Rendered by JS -->
+          </tbody>
+        </table>
+      </div>
+      <div class="modal-overlay" id="securityModal">
+        <div class="admin-form-card modal-content">
+          <h3>Konfigurasi Akses Akun</h3>
+          <form id="securityForm">
+            <div class="cms-grid">
+              <label>Role Pengguna<select id="accRole"><option value="admin">Admin</option><option value="staff">Staff</option><option value="user">User / Tamu</option></select></label>
+              <label>Email Login<input type="email" id="accLogin" placeholder="email@domain.com" required></label>
+              <label>Password Sementara<input type="text" id="accPass" placeholder="Minimal 6 karakter" required></label>
+              <label>Nama Lengkap<input type="text" id="accName" placeholder="Nama pemilik akun" required></label>
+              <label>Nomor Telepon<input type="tel" id="accPhone" placeholder="+62..."></label>
+            </div>
+            <div style="display: flex; gap: 12px; margin-top: 18px;">
+              <button class="primary-btn" type="submit" style="flex: 2;">Simpan Konfigurasi</button>
+              <button class="ghost-btn" type="button" id="cancelSecBtn" style="flex: 1;">Batal</button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="security-note-grid">
+        <article><strong>Admin</strong><span>Mengelola rate, inventaris, laporan, akun, dan keamanan.</span></article>
+        <article><strong>Resepsionis</strong><span>Mengelola check-in/out, pembayaran front desk, dan status kamar.</span></article>
+        <article><strong>User</strong><span>Mengelola profil, booking, voucher, invoice, dan rewards pribadi.</span></article>
+      </div>
+    </section>
+  </main>
+
+  <script src="js/api.js"></script>
+  <script src="js/admin.js"></script>
+</body>
+</html>

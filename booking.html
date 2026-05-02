@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Panel booking user Pandu Hotel untuk memilih kamar, mengisi data tamu, add-on, dan pembayaran aman.">
+  <title>Panel Booking User | Pandu Hotel</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="user-page">
+  <header class="user-topbar">
+    <a href="user.html" class="brand" aria-label="Pandu Hotel">
+      <span class="brand-mark">P</span>
+      <span>Pandu Hotel</span>
+    </a>
+    <button class="panel-nav-toggle" type="button" aria-label="Buka menu" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <nav class="user-nav" aria-label="Navigasi booking user">
+      <a href="user.html">Area User</a>
+      <a href="#booking">Booking</a>
+      <button class="ghost-btn" id="logoutButton" type="button">Logout</button>
+    </nav>
+  </header>
+
+  <main class="user-main">
+    <section class="booking-hero-panel">
+      <div>
+        <p class="eyebrow">Panel booking user</p>
+        <h1>Booking hotel dalam 3 langkah</h1>
+        <p>Pilih lokasi dan kamar, lengkapi data tamu, lalu konfirmasi pembayaran dengan harga final yang transparan.</p>
+      </div>
+      <div class="booking-trust-strip">
+        <span>Inventaris real-time</span>
+        <span>Refund sesuai rate plan</span>
+        <span>Gateway pembayaran aman</span>
+      </div>
+    </section>
+
+    <section class="user-booking-layout" id="booking">
+      <div class="booking-card">
+        <div class="progress">
+          <span class="progress-dot active"></span>
+          <span class="progress-dot"></span>
+          <span class="progress-dot"></span>
+        </div>
+        <p class="step-label">Langkah 1 dari 3</p>
+
+        <div class="booking-step active" data-step="1">
+          <h2>Pilih kamar</h2>
+          <div class="form-grid-2">
+            <label>
+              Lokasi
+              <select id="userLocation">
+                <option>Jakarta</option>
+                <option>Bali</option>
+                <option>Bandung</option>
+                <option>Lombok</option>
+              </select>
+            </label>
+            <label>
+              Tamu
+              <select id="userGuests">
+                <option>1 tamu</option>
+                <option selected>2 tamu</option>
+                <option>3 tamu</option>
+                <option>4 tamu</option>
+              </select>
+            </label>
+            <label>
+              Check-in
+              <input type="date" id="userCheckIn" required>
+            </label>
+            <label>
+              Check-out
+              <input type="date" id="userCheckOut" required>
+            </label>
+          </div>
+          <label>
+            Tipe kamar
+            <select id="roomType">
+              <option value="deluxe" data-price="1180000" data-stock="18">Deluxe City - Rp1.180.000</option>
+              <option value="suite" data-price="1960000" data-stock="7">Suite Ocean - Rp1.960.000</option>
+              <option value="family" data-price="2420000" data-stock="5">Family Residence - Rp2.420.000</option>
+            </select>
+          </label>
+          <div class="availability-card">
+            <strong id="availabilityText">18 kamar tersedia</strong>
+            <span>Data ini mengikuti inventaris yang dikelola admin.</span>
+          </div>
+          <div class="room-policy-grid">
+            <article><strong>Kapasitas</strong><span id="roomCapacity">2 tamu</span></article>
+            <article><strong>Fasilitas</strong><span id="roomFacilities">Wi-Fi, meja kerja, city view</span></article>
+            <article><strong>Kebijakan</strong><span id="roomPolicy">Refund sampai H-2 untuk Flexible Rate</span></article>
+          </div>
+          <button class="primary-btn next-step" type="button">Lanjut Isi Data</button>
+        </div>
+
+        <div class="booking-step" data-step="2">
+          <h2>Data tamu & Add-ons</h2>
+          <label>
+            Nama lengkap
+            <input type="text" id="guestName" placeholder="Nama tamu" autocomplete="name">
+          </label>
+          <label>
+            Email
+            <input type="email" id="guestEmail" placeholder="email@domain.com" autocomplete="email">
+          </label>
+          <label>
+            Nomor WhatsApp
+            <input type="tel" id="guestPhone" placeholder="+62 812 0000 0000" autocomplete="tel">
+          </label>
+          <label>
+            Catatan khusus
+            <input type="text" id="guestNote" placeholder="Contoh: high floor, late check-in">
+          </label>
+          <div class="addons">
+            <h3>Fasilitas tambahan</h3>
+            <label><input type="checkbox" class="addon-item" data-price="150000" data-name="sarapan"> Sarapan Buffet (Rp150.000)</label>
+            <label><input type="checkbox" class="addon-item" data-price="250000" data-name="spa"> Paket Spa Relaksasi (Rp250.000)</label>
+            <label><input type="checkbox" class="addon-item" data-price="350000" data-name="airport"> Antar-jemput Airport (Rp350.000)</label>
+          </div>
+          <div class="button-row">
+            <button class="ghost-btn prev-step" type="button">Kembali</button>
+            <button class="primary-btn next-step" type="button">Lanjut ke Pembayaran</button>
+          </div>
+        </div>
+
+        <div class="booking-step" data-step="3">
+          <h2>Pembayaran</h2>
+          <div class="form-grid-2">
+            <label>
+              Metode pembayaran
+              <select id="paymentMethod">
+                <option value="va">Virtual Account</option>
+                <option value="card">Kartu Debit/Kredit</option>
+                <option value="qris">QRIS</option>
+              </select>
+            </label>
+            <label>
+              Kode promo
+              <select id="promoCode">
+                <option value="0">Tanpa promo</option>
+                <option value="150000">WELCOME10 - potongan Rp150.000</option>
+                <option value="250000">SPA250 - potongan Rp250.000</option>
+              </select>
+            </label>
+          </div>
+          <div class="security-note">
+            <span>🔒</span>
+            <p>Pembayaran Anda dienkripsi dan dilindungi oleh gateway pembayaran resmi Indonesia.</p>
+          </div>
+          <div class="button-row">
+            <button class="ghost-btn prev-step" type="button">Kembali</button>
+            <button class="primary-btn submit-booking" type="button">Bayar Sekarang</button>
+          </div>
+        </div>
+      </div>
+
+      <aside class="booking-side-panel">
+        <h2>Ringkasan Booking</h2>
+        <div class="summary-list">
+          <div class="summary-row"><span>Hotel</span><strong id="summaryHotelName">Pandu Grand Jakarta</strong></div>
+          <div class="summary-row"><span>Check-in</span><strong id="summaryCheckIn">—</strong></div>
+          <div class="summary-row"><span>Check-out</span><strong id="summaryCheckOut">—</strong></div>
+          <div class="summary-row"><span>Durasi</span><strong id="summaryNights">1 malam</strong></div>
+        </div>
+        <hr class="summary-divider">
+        <div class="price-breakdown">
+          <div class="price-row"><span>Harga kamar</span><strong id="priceBase">Rp0</strong></div>
+          <div class="price-row"><span>Add-ons</span><strong id="priceAddons">Rp0</strong></div>
+          <div class="price-row"><span>Pajak & layanan (11%)</span><strong id="priceTax">Rp0</strong></div>
+          <div class="price-row total"><span>Total bayar</span><strong id="priceTotal">Rp0</strong></div>
+        </div>
+        <div class="trust-badges">
+          <span>✓ Konfirmasi instan</span>
+          <span>✓ Harga final</span>
+          <span>✓ Pembayaran aman</span>
+        </div>
+      </aside>
+    </section>
+  </main>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="js/api.js"></script>
+  <script src="js/cms-loader.js"></script>
+  <script src="js/booking.js"></script>
+</body>
+</html>

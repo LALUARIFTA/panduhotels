@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Area user Pandu Hotel untuk melihat reservasi, rewards, voucher, profil, dan akses booking.">
+  <title>Area User | Pandu Hotel</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="user-page">
+  <header class="site-header">
+    <a href="index.html" class="brand" aria-label="Pandu Hotel">
+      <span class="brand-mark">P</span>
+      <span>Pandu Hotel</span>
+    </a>
+    <button class="nav-toggle" type="button" aria-label="Buka menu" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <nav class="site-nav" aria-label="Navigasi user">
+      <a href="booking.html">Booking Baru</a>
+      <a href="#reservasi">Reservasi Saya</a>
+      <button id="logoutButton" class="ghost-btn" style="margin-left: 12px; min-height: 42px;">Logout</button>
+    </nav>
+  </header>
+
+  <main class="user-main">
+
+    <section class="user-hero">
+      <div>
+        <p class="eyebrow">Selamat datang kembali</p>
+        <h1>Halo, <span id="userName">User</span></h1>
+        <p>Kelola reservasi, pantau status pembayaran, gunakan voucher, dan lanjutkan booking hotel dari satu dashboard pribadi.</p>
+        <a class="primary-link-btn" href="booking.html">Mulai Booking Hotel</a>
+      </div>
+      </div>
+    </section>
+
+    <div class="user-content-layout">
+      
+      <!-- Kolom Utama (Kiri di Desktop) -->
+      <div class="user-primary-column">
+        <section class="user-actions-grid">
+          <a href="booking.html">
+            <strong>Booking kamar</strong>
+            <span>Cari lokasi, pilih tanggal, bandingkan tipe kamar, dan bayar aman.</span>
+          </a>
+          <a href="#reservasi">
+            <strong>Cek reservasi</strong>
+            <span>Lihat status pembayaran, tanggal menginap, dan detail kamar.</span>
+          </a>
+        </section>
+
+        <section class="user-section" id="reservasi">
+          <div class="section-heading">
+            <p class="eyebrow">Reservasi saya</p>
+            <h2>Riwayat dan status booking</h2>
+          </div>
+          <div class="reservation-list" id="user-bookings-list">
+            <!-- Rendered by JS -->
+            <p class="section-desc">Memuat reservasi Anda...</p>
+          </div>
+        </section>
+
+        <section class="user-section">
+          <div class="section-heading">
+            <p class="eyebrow">Pembayaran</p>
+            <h2>Invoice dan refund</h2>
+          </div>
+          <div class="reservation-list" id="user-payments-list">
+            <!-- Rendered by JS -->
+            <p class="section-desc">Memuat riwayat pembayaran...</p>
+          </div>
+        </section>
+      </div>
+
+      <!-- Kolom Samping (Kanan di Desktop) -->
+      <aside class="user-secondary-column">
+        <section class="user-dashboard-grid">
+          <article class="user-stat-card">
+            <span>Booking Aktif</span>
+            <strong id="stat-active-bookings">0</strong>
+          </article>
+          <article class="user-stat-card">
+            <span>Check-in Berikutnya</span>
+            <strong id="stat-next-checkin">-</strong>
+          </article>
+        </section>
+
+        <section class="user-section profile-section">
+          <div class="section-heading">
+            <p class="eyebrow">Profil member</p>
+            <h2>Data akun</h2>
+          </div>
+          <div class="profile-grid">
+            <article><span>Nama</span><strong id="profileName">User Pandu</strong></article>
+            <article><span>Email</span><strong id="profileEmail">user@email.com</strong></article>
+            <article><span>WhatsApp</span><strong id="profilePhone">Belum diisi</strong></article>
+            <article><span>Tier</span><strong>Gold Member</strong></article>
+          </div>
+        </section>
+      </aside>
+
+    </div>
+
+
+  </main>
+
+  <!-- Modal Detail Reservasi -->
+  <div class="modal-overlay" id="detailModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>Detail Reservasi</h2>
+        <button class="close-btn" id="closeDetailModal">&times;</button>
+      </div>
+      <div class="modal-body" id="detailModalBody">
+        <!-- Konten detail diisi oleh JS -->
+        <p>Memuat detail...</p>
+      </div>
+      <div class="modal-footer">
+        <button class="primary-btn" id="printBookingBtn">Cetak Bukti</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/api.js"></script>
+  <script src="js/user.js"></script>
+</body>
+</html>

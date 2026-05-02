@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Signup user Pandu Hotel untuk membuat akun booking hotel, rewards, dan reservasi.">
+  <title>Signup User | Pandu Hotel</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="login-page">
+  <main class="login-layout signup-layout">
+    <section class="login-visual signup-visual">
+      <a href="index.html" class="brand" aria-label="Pandu Hotel">
+        <span class="brand-mark">P</span>
+        <span>Pandu Hotel</span>
+      </a>
+      <div>
+        <p class="eyebrow">Daftar user</p>
+        <h1>Buat akun untuk booking lebih cepat</h1>
+        <p>Simpan data tamu, kumpulkan poin rewards, pantau reservasi, dan akses promo khusus member Pandu Hotel.</p>
+        <div class="auth-benefits">
+          <span>Checkout lebih cepat</span>
+          <span>Voucher member</span>
+          <span>Riwayat reservasi</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="login-form-panel">
+      <form class="booking-card login-card" id="signupForm">
+        <div class="auth-form-header">
+          <span>New member</span>
+          <h2>Signup User</h2>
+          <p class="login-copy">Lengkapi data dasar untuk membuat akun booking Pandu Hotel.</p>
+        </div>
+        <div class="auth-field-grid">
+          <label>
+            Nama lengkap
+            <input type="text" id="signupName" placeholder="Nama lengkap" autocomplete="name" required>
+          </label>
+          <label>
+            Email
+            <input type="email" id="signupEmail" placeholder="nama@email.com" autocomplete="email" required>
+          </label>
+          <label>
+            Nomor WhatsApp
+            <input type="tel" id="signupPhone" placeholder="+62 812 0000 0000" autocomplete="tel" required>
+          </label>
+          <label>
+            Password
+            <input type="password" id="signupPassword" placeholder="Minimal 6 karakter" autocomplete="new-password" required>
+          </label>
+          <label class="auth-wide-field">
+            Konfirmasi password
+            <input type="password" id="signupConfirm" placeholder="Ulangi password" autocomplete="new-password" required>
+          </label>
+        </div>
+        <label class="checkbox-label">
+          <input type="checkbox" id="signupAgree" required>
+          Saya setuju dengan syarat booking dan kebijakan privasi.
+        </label>
+        <button class="primary-btn" type="submit">Buat Akun User</button>
+        <p class="auth-switch">Sudah punya akun? <a href="login.html">Login di sini</a></p>
+      </form>
+    </section>
+  </main>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="js/api.js"></script>
+  <script src="js/cms-loader.js"></script>
+  <script src="js/signup.js"></script>
+</body>
+</html>

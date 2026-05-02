@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Panel staff resepsionis Pandu Hotel untuk check-in, check-out, reservasi harian, pembayaran, dan status kamar.">
+  <title>Staff Resepsionis | Pandu Hotel</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="staff-page">
+  <aside class="staff-sidebar">
+    <a href="index.html" class="brand admin-brand" aria-label="Pandu Hotel">
+      <span class="brand-mark">P</span>
+      <span>Front Desk</span>
+    </a>
+    <button class="panel-nav-toggle staff-panel-toggle" type="button" aria-label="Buka menu resepsionis" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <nav class="staff-nav" aria-label="Navigasi resepsionis">
+      <button class="staff-tab active" data-staff="today" type="button">Hari Ini</button>
+      <button class="staff-tab" data-staff="checkin" type="button">Check-in</button>
+      <button class="staff-tab" data-staff="checkout" type="button">Check-out</button>
+      <button class="staff-tab" data-staff="rooms" type="button">Status Kamar</button>
+      <button class="staff-tab" data-staff="payments" type="button">Pembayaran</button>
+    </nav>
+    <a class="admin-public-link" href="admin.html">Panel Admin</a>
+  </aside>
+
+  <main class="staff-main">
+    <header class="admin-topbar">
+      <div>
+        <p class="eyebrow">Operasional front desk</p>
+        <h1>Panel Staff Resepsionis</h1>
+      </div>
+      <div class="admin-profile">
+        <span>Shift Pagi</span>
+        <strong>SP</strong>
+      </div>
+    </header>
+
+    <section class="staff-view active" id="staff-today">
+      <div class="staff-stat-grid">
+        <article><span>Check-in</span><strong>18</strong><small>5 VIP, 3 late arrival</small></article>
+        <article><span>Check-out</span><strong>12</strong><small>2 butuh deposit refund</small></article>
+        <article><span>Kamar siap</span><strong>31</strong><small>9 masih housekeeping</small></article>
+        <article><span>Payment pending</span><strong>4</strong><small>VA menunggu bayar</small></article>
+      </div>
+
+      <div class="staff-grid-2">
+        <section class="staff-card">
+          <div class="staff-section-title">
+            <h2>Reservasi prioritas</h2>
+            <button class="ghost-btn" type="button">Refresh</button>
+          </div>
+          <div class="frontdesk-list">
+            <article>
+              <div><strong>PH-1028</strong><span>Nadia Putri · Suite Ocean · 14:00</span></div>
+              <span class="status paid">Paid</span>
+              <button class="primary-btn staff-action" type="button">Check-in</button>
+            </article>
+            <article>
+              <div><strong>PH-1029</strong><span>Arif Wibowo · Deluxe City · 16:00</span></div>
+              <span class="status pending">Pending</span>
+              <button class="ghost-btn staff-action" type="button">Tagih</button>
+            </article>
+            <article>
+              <div><strong>PH-1030</strong><span>Maria Tan · Family Residence · 18:00</span></div>
+              <span class="status paid">Paid</span>
+              <button class="primary-btn staff-action" type="button">Check-in</button>
+            </article>
+          </div>
+        </section>
+
+        <section class="staff-card">
+          <div class="staff-section-title">
+            <h2>Catatan shift</h2>
+          </div>
+          <div class="shift-notes">
+            <span>Room 1108 minta late check-out sampai 14:00.</span>
+            <span>VIP Suite Ocean butuh welcome drink tanpa alkohol.</span>
+            <span>Airport pickup untuk PH-1029 belum dibayar.</span>
+          </div>
+          <label>
+            Tambah catatan
+            <input type="text" placeholder="Tulis catatan operasional">
+          </label>
+        </section>
+      </div>
+    </section>
+
+    <section class="staff-view" id="staff-checkin">
+      <div class="staff-section-title">
+        <h2>Proses Check-in</h2>
+        <button class="primary-btn" type="button">Scan KTP/Passport</button>
+      </div>
+      <div class="staff-form-grid">
+        <label>Kode Booking<input type="text" value="PH-1028"></label>
+        <label>Nama Tamu<input type="text" value="Nadia Putri"></label>
+        <label>Nomor Kamar<select><option>1108 - Suite Ocean</option><option>0806 - Deluxe City</option><option>1502 - Family Residence</option></select></label>
+        <label>Deposit<select><option>Tidak perlu</option><option>Cash</option><option>Pre-auth kartu</option></select></label>
+        <label>Identitas<select><option>KTP terverifikasi</option><option>Passport terverifikasi</option><option>Belum diverifikasi</option></select></label>
+        <label>Catatan Tamu<input type="text" value="High floor, late check-in"></label>
+      </div>
+      <button class="primary-btn staff-submit" type="button">Konfirmasi Check-in</button>
+    </section>
+
+    <section class="staff-view" id="staff-checkout">
+      <div class="staff-section-title">
+        <h2>Proses Check-out</h2>
+        <button class="primary-btn" type="button">Cetak Invoice</button>
+      </div>
+      <div class="admin-table-wrap">
+        <table>
+          <thead>
+            <tr><th>Kamar</th><th>Tamu</th><th>Waktu</th><th>Mini Bar</th><th>Refund Deposit</th><th>Status</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>0904</td><td>Kevin Lim</td><td>11:20</td><td>Rp0</td><td>Rp500rb</td><td><span class="status pending">Review</span></td></tr>
+            <tr><td>1201</td><td>Maria Tan</td><td>12:00</td><td>Rp85rb</td><td>Rp0</td><td><span class="status paid">Clear</span></td></tr>
+            <tr><td>0707</td><td>Raka S.</td><td>12:30</td><td>Rp0</td><td>Rp0</td><td><span class="status paid">Clear</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="staff-view" id="staff-rooms">
+      <div class="staff-section-title">
+        <h2>Status Kamar</h2>
+        <button class="ghost-btn" type="button">Sinkron Housekeeping</button>
+      </div>
+      <div class="room-board">
+        <article><strong>0806</strong><span>Deluxe City</span><em class="room-ready">Ready</em></article>
+        <article><strong>0904</strong><span>Deluxe City</span><em class="room-dirty">Dirty</em></article>
+        <article><strong>1108</strong><span>Suite Ocean</span><em class="room-ready">Ready</em></article>
+        <article><strong>1201</strong><span>Suite Ocean</span><em class="room-occupied">Occupied</em></article>
+        <article><strong>1502</strong><span>Family Residence</span><em class="room-cleaning">Cleaning</em></article>
+        <article><strong>1508</strong><span>Family Residence</span><em class="room-ready">Ready</em></article>
+      </div>
+    </section>
+
+    <section class="staff-view" id="staff-payments">
+      <div class="staff-section-title">
+        <h2>Pembayaran Front Desk</h2>
+        <button class="primary-btn" type="button">Buat Payment Link</button>
+      </div>
+      <div class="admin-table-wrap">
+        <table>
+          <thead>
+            <tr><th>Booking</th><th>Tamu</th><th>Metode</th><th>Status</th><th>Sisa</th><th>Aksi</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>PH-1029</td><td>Arif Wibowo</td><td>VA</td><td><span class="status pending">Waiting</span></td><td>Rp1,18jt</td><td>Kirim ulang link</td></tr>
+            <tr><td>PH-1033</td><td>Dewi L.</td><td>QRIS</td><td><span class="status pending">Partial</span></td><td>Rp420rb</td><td>Tagih sisa</td></tr>
+            <tr><td>PH-1034</td><td>Hendra P.</td><td>Cash</td><td><span class="status paid">Paid</span></td><td>Rp0</td><td>Cetak receipt</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="js/api.js"></script>
+  <script src="js/receptionist.js"></script>
+</body>
+</html>
