@@ -1,4 +1,8 @@
-require("dotenv").config({ path: require("path").join(__dirname, "..", ".env") });
+const path = require("path");
+// Only load dotenv in development
+if (process.env.NODE_ENV !== "production") {
+  require("dotenv").config({ path: path.join(__dirname, "..", ".env") });
+}
 
 const express = require("express");
 const helmet = require("helmet");
@@ -191,18 +195,20 @@ process.on("unhandledRejection", (reason) => {
 // START SERVER
 // ══════════════════════════════════════════
 
-server = app.listen(PORT, () => {
-  console.log(`
-╔══════════════════════════════════════════╗
-║        🏨 PANDU HOTEL SERVER             ║
-╠══════════════════════════════════════════╣
-║  Status  : Running                       ║
-║  Port    : ${String(PORT).padEnd(29)}║
-║  Mode    : ${String(process.env.NODE_ENV || "development").padEnd(29)}║
-║  URL     : http://localhost:${String(PORT).padEnd(13)}║
-║  PID     : ${String(process.pid).padEnd(29)}║
-╚══════════════════════════════════════════╝
-  `);
-});
+if (!process.env.VERCEL) {
+  server = app.listen(PORT, () => {
+    console.log(`
+  ╔══════════════════════════════════════════╗
+  ║        🏨 PANDU HOTEL SERVER             ║
+  ╠══════════════════════════════════════════╣
+  ║  Status  : Running                       ║
+  ║  Port    : ${String(PORT).padEnd(29)}║
+  ║  Mode    : ${String(process.env.NODE_ENV || "development").padEnd(29)}║
+  ║  URL     : http://localhost:${String(PORT).padEnd(13)}║
+  ║  PID     : ${String(process.pid).padEnd(29)}║
+  ╚══════════════════════════════════════════╝
+    `);
+  });
+}
 
 module.exports = app;
