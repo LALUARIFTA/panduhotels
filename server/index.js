@@ -8,7 +8,6 @@ const express = require("express");
 const helmet = require("helmet");
 const cors = require("cors");
 const rateLimit = require("express-rate-limit");
-const path = require("path");
 const { sanitizeBody } = require("./middleware/validate");
 const { requestLogger } = require("./middleware/logger");
 const { errorHandler } = require("./middleware/errorHandler");
