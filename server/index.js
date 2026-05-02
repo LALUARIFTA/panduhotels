@@ -32,8 +32,19 @@ app.use(helmet({
 }));
 
 // CORS configuration
+const allowedOrigins = (process.env.CORS_ORIGIN || "http://localhost:3000")
+  .split(",")
+  .map(o => o.trim());
+
 app.use(cors({
-  origin: process.env.CORS_ORIGIN || "http://localhost:3000",
+  origin: (origin, callback) => {
+    // Allow requests with no origin (mobile apps, curl, etc.)
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error("CORS not allowed"));
+    }
+  },
   methods: ["GET", "POST", "PATCH", "DELETE"],
   allowedHeaders: ["Content-Type", "Authorization"],
   credentials: true
@@ -113,13 +124,23 @@ app.get("/api/health", (req, res) => {
 });
 
 // ══════════════════════════════════════════
-// SPA FALLBACK — serve index.html for non-API routes
+// SPA FALLBACK — serve correct HTML for known routes
 // ══════════════════════════════════════════
+
+// Known HTML pages mapping
+const htmlPages = ["admin", "booking", "login", "signup", "user", "receptionist"];
 
 app.get("*", (req, res) => {
   if (req.path.startsWith("/api/")) {
     return res.status(404).json({ error: "NOT_FOUND", message: "Endpoint tidak ditemukan." });
   }
+
+  // Check if the path matches a known HTML page (e.g. /admin -> admin.html)
+  const cleanPath = req.path.replace(/^\//, "").replace(/\.html$/, "");
+  if (htmlPages.includes(cleanPath)) {
+    return res.sendFile(path.join(publicDir, `${cleanPath}.html`));
+  }
+
   res.sendFile(path.join(publicDir, "index.html"));
 });
 

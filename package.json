@@ -4,9 +4,12 @@
   "description": "PanduHotel - Sistem Booking Hotel dengan Supabase Backend",
   "main": "server/index.js",
   "scripts": {
-    "start": "node server/index.js",
+    "start": "NODE_ENV=production node server/index.js",
     "dev": "node --watch server/index.js",
-    "build": "echo 'No build needed'"
+    "build": "echo 'No build step needed - static frontend'"
+  },
+  "engines": {
+    "node": ">=18.0.0"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.49.0",
